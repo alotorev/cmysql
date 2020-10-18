@@ -6,7 +6,16 @@ let package = Package(
     name: "CMySQL",
     pkgConfig: "cmysql",
     providers: [
-        .Brew("cmysql"),
-        .Apt("cmysql")
+        .brew(["cmysql"]),
+        .apt(["cmysql"])
+    ],
+    products: [
+        .library(
+            name: "CMySQl",
+            targets: ["CMySQL"]
+        )
+    ],
+    targets: [
+        .target(name: "CMySQL")
     ]
 )
